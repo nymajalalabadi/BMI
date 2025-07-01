@@ -2,8 +2,111 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BMI.MVVM.Views.BMIView"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
              Title="BMIView">
+
+    <ScrollView>
+        
+        <ScrollView.Background>
+            
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#572375" Offset="0.0" />
+                <GradientStop Color="#A594F9" Offset="1" />
+            </LinearGradientBrush>
+            
+        </ScrollView.Background>
+        
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25" 
+                             VerticalOptions="Center">
+
+            <!--#region Height -->
+
+            <Frame>
+                <VerticalStackLayout>
+
+                    <Label Text="Height (cm)"
+                           FontSize="Large"
+                           TextColor="Gray"
+                           HorizontalOptions="Center" />
+
+                    <gauge:SfLinearGauge Margin="0,15,0,0" Interval="50" Minimum="25" Maximum="250">
+
+                        <gauge:SfLinearGauge.MarkerPointers>
+
+                            <gauge:LinearContentPointer x:Name="HeightPointer" IsInteractive="True" Position="Cross" Value="50">
+
+                                <gauge:LinearContentPointer.Content>
+
+                                    <Grid HeightRequest="25" WidthRequest="50">
+
+                                        <RoundRectangle CornerRadius="5" Fill="#FF0074E3"/>
+
+
+
+                                        <Label HorizontalOptions="Center" Text="{Binding Source={x:Reference HeightPointer}, Path=Value, StringFormat='{0:0}'}" TextColor="White" VerticalOptions="Center"/>
+
+                                    </Grid>
+
+                                </gauge:LinearContentPointer.Content>
+
+
+                            </gauge:LinearContentPointer>
+                            
+                        </gauge:SfLinearGauge.MarkerPointers>
+                        
+                    </gauge:SfLinearGauge>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--#endregion-->
+
+            <!--#region Weight -->
+
+            <Frame>
+                <VerticalStackLayout>
+
+                    <Label Text="Weight (kg)"
+                            FontSize="Large"
+                            TextColor="Gray"
+                            HorizontalOptions="Center" />
+
+                    <gauge:SfLinearGauge Margin="0,15,0,0" Minimum="50" Maximum="150">
+
+                        <gauge:SfLinearGauge.MarkerPointers>
+
+                            <gauge:LinearContentPointer x:Name="WeightPointer" IsInteractive="True" Position="Cross" Value="50">
+
+                                <gauge:LinearContentPointer.Content>
+
+                                    <Grid HeightRequest="25" WidthRequest="50">
+
+                                        <RoundRectangle CornerRadius="5" Fill="#FF0074E3"/>
+
+
+
+                                        <Label HorizontalOptions="Center" Text="{Binding Source={x:Reference WeightPointer}, Path=Value, StringFormat='{0:0}'}" TextColor="White" VerticalOptions="Center"/>
+
+                                    </Grid>
+
+                                </gauge:LinearContentPointer.Content>
+
+
+                            </gauge:LinearContentPointer>
+
+                        </gauge:SfLinearGauge.MarkerPointers>
+
+                    </gauge:SfLinearGauge>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--#endregion-->
+
+        </VerticalStackLayout>
+    </ScrollView>
+
     
-    
-    
+
 </ContentPage>
