@@ -34,7 +34,7 @@
 
                         <gauge:SfLinearGauge.MarkerPointers>
 
-                            <gauge:LinearContentPointer x:Name="HeightPointer" IsInteractive="True" Position="Cross" Value="50">
+                            <gauge:LinearContentPointer x:Name="HeightPointer" IsInteractive="True" Position="Cross" Value="{Binding BMI.Height}">
 
                                 <gauge:LinearContentPointer.Content>
 
@@ -76,7 +76,7 @@
 
                         <gauge:SfLinearGauge.MarkerPointers>
 
-                            <gauge:LinearContentPointer x:Name="WeightPointer" IsInteractive="True" Position="Cross" Value="50">
+                            <gauge:LinearContentPointer x:Name="WeightPointer" IsInteractive="True" Position="Cross" Value="{Binding BMI.Weight}">
 
                                 <gauge:LinearContentPointer.Content>
 
@@ -109,12 +109,12 @@
                 <Frame>
                     <VerticalStackLayout>
 
-                        <Label Text="Result: Normal"
-                                FontSize="Title"
-                                TextColor="Gray"
-                                HorizontalOptions="Center" />
+                    <Label
+                        FontSize="Title"
+                        HorizontalOptions="Center"
+                        Text="{Binding BMI.ResultText}" />
 
-                        <gauge:SfRadialGauge Margin="0, -55">
+                    <gauge:SfRadialGauge >
 
                             <gauge:SfRadialGauge.Axes>
 
